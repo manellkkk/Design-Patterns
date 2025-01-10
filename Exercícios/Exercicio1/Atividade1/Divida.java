@@ -40,11 +40,13 @@ public class Divida {
         return valorPago;
     }
 
-    public Boolean paga(double valor){
+    public void paga(double valor){
         if(valor <= 0){
-            return false;
+            throw new IllegalArgumentException("Valor invalido para pagamento");
+        }
+        if(valor > 100){
+            valor -= 8;
         }
         this.valorPago += valor;
-        return true;
     }
 }
